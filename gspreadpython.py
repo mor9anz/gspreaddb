@@ -1,5 +1,6 @@
 import argparse
 import gspread
+import private
 from oauth2client.service_account import ServiceAccountCredentials
 
 INSERT = 'insert'
@@ -18,7 +19,7 @@ def main():
     args = parse_args()
 
     scope = ['https://spreadsheets.google.com/feeds']
-    creds = ServiceAccountCredentials.from_json_keyfile_name('gspreaddb-003f4c9e06b3.json', scope)
+    creds = ServiceAccountCredentials.from_json_keyfile_name(private.SECRET, scope)
     client = gspread.authorize(creds)
      
     sheet = client.open("gspreaddb").sheet1
@@ -30,7 +31,7 @@ def main():
         rows = sheet.get_all_values()
         for row in rows:
             if filter(lambda x:x in "".join(row), keywords):
-                print row
+                print "\n\t".join(row)
 
 if __name__ == "__main__":
     main() 
