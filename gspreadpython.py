@@ -62,12 +62,12 @@ def main():
         #inserting encoding|link_or_cmd|cmd_or_comment|comments(optional)
         if args[ENCODING] == BASE64:
             if is_base64_encoded(args[INSERT][0]):#verify that the fisrt element in -i list should follow the ENCODING
-                sheet.insert_row([args[ENCODING]] + args[INSERT]) 
+                sheet.append_row([args[ENCODING]] + args[INSERT]) 
             else:
                 print "string \033[1m%s\033[0m doesnot match the encoding \033[1m%s\033[0m" % (args[INSERT][0], args[ENCODING])
 
         else:#ascii encoding
-            sheet.insert_row([args[ENCODING]] + args[INSERT]) 
+            sheet.append_row([args[ENCODING]] + args[INSERT]) 
 
     if args[SEARCH]:
         keywords = args[SEARCH]
