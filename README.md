@@ -4,6 +4,9 @@ https://www.twilio.com/blog/2017/02/an-easy-way-to-read-and-write-to-a-google-sp
 
 gspread API Reference http://gspread.readthedocs.io/en/latest/
 
+# Setup
+Create private.py containing SECRET="path\_to\_json"
+
 # Format
 Encoding|link\_or\_cmd|cmd\_or\_comment|comment(optional)
 
